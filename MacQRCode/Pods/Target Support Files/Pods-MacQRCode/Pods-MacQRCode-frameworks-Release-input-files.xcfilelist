@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MacQRCode/Pods-MacQRCode-frameworks.sh
+${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework
+${BUILT_PRODUCTS_DIR}/swift_qrcodejs/swift_qrcodejs.framework

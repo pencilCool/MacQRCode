@@ -729,7 +729,7 @@
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="225" height="240"/>
-                                            <size key="maxSize" width="225" height="10000000"/>
+                                            <size key="maxSize" width="240" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -771,7 +771,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="NI6-DQ-dxR" id="JdL-pF-3He"/>
+                        <outlet property="qrImageView" destination="hV4-hn-aI8" id="wNu-9H-2xW"/>
+                        <outlet property="textView" destination="30b-Bx-aVc" id="Gu3-iR-zbz"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

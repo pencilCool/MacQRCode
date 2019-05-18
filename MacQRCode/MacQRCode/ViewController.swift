@@ -7,23 +7,43 @@
 //
 
 import Cocoa
+import EFQRCode
 
 class ViewController: NSViewController {
-    @IBOutlet weak var contentView: NSScrollView!
+    @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var qrImageView: NSImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+    }
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
         }
     }
 
 
     @IBAction func generateQRCode(_ sender: NSButton) {
+        guard let content = self.textView.textStorage?.string else {
+            return
+        }
+        
+        createQRCode(with: content)
+        
+    }
+    
+    func createQRCode(with string:String) -> Void {
+        guard let cgImage = EFQRCode.generate(content: string) else  {
+           return
+        }
+        let cgSize = CGSize(width: 400, height: 400)
+        let size = NSSizeFromCGSize(cgSize)
+        qrImageView.image = NSImage.init(cgImage: cgImage, size: size)
         
     }
 }
