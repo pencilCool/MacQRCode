@@ -9,7 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var contentView: NSScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,5 +23,8 @@ class ViewController: NSViewController {
     }
 
 
+    @IBAction func generateQRCode(_ sender: NSButton) {
+        
+    }
 }
 

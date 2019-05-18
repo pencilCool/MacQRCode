@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MacQRCode" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +704,82 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MacQRCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hV4-hn-aI8">
+                                <rect key="frame" x="20" y="50" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Pdu-Qe-xPY"/>
+                                    <constraint firstAttribute="width" constant="300" id="yMy-bD-1tJ"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" imageScaling="proportionallyDown" image="placeholder" id="Rlx-A9-1TA"/>
+                            </imageView>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NI6-DQ-dxR">
+                                <rect key="frame" x="388" y="110" width="240" height="240"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="L3j-Yh-acI">
+                                    <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="30b-Bx-aVc">
+                                            <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="225" height="240"/>
+                                            <size key="maxSize" width="225" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="45Y-ac-jbc"/>
+                                    <constraint firstAttribute="width" constant="240" id="C8d-bf-5aE"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="LLc-l2-GnL">
+                                    <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="4qV-92-ZcR">
+                                    <rect key="frame" x="225" y="0.0" width="15" height="240"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8lm-6r-Kg4">
+                                <rect key="frame" x="461" y="43" width="79" height="32"/>
+                                <buttonCell key="cell" type="push" title="create" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vI2-xR-2M3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="generateQRCode:" target="XfG-lQ-9wD" id="UfK-YK-Ekm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hV4-hn-aI8" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="DNL-Ji-PHw"/>
+                            <constraint firstAttribute="bottom" secondItem="hV4-hn-aI8" secondAttribute="bottom" constant="50" id="ItJ-m5-SEJ"/>
+                            <constraint firstItem="8lm-6r-Kg4" firstAttribute="bottom" secondItem="hV4-hn-aI8" secondAttribute="bottom" id="MIR-L9-9a2"/>
+                            <constraint firstItem="hV4-hn-aI8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="h1x-dg-zaC"/>
+                            <constraint firstItem="hV4-hn-aI8" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="lYR-fk-0tL"/>
+                            <constraint firstAttribute="trailing" secondItem="NI6-DQ-dxR" secondAttribute="trailing" constant="50" id="leb-tm-1Mo"/>
+                            <constraint firstItem="NI6-DQ-dxR" firstAttribute="firstBaseline" secondItem="hV4-hn-aI8" secondAttribute="firstBaseline" id="oDC-8C-8GN"/>
+                            <constraint firstItem="8lm-6r-Kg4" firstAttribute="centerX" secondItem="30b-Bx-aVc" secondAttribute="centerX" id="svM-QG-5e8"/>
+                            <constraint firstItem="NI6-DQ-dxR" firstAttribute="leading" secondItem="hV4-hn-aI8" secondAttribute="trailing" constant="68" id="zbq-L7-bS6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="NI6-DQ-dxR" id="JdL-pF-3He"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="216" y="679"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="256" height="256"/>
+    </resources>
 </document>
