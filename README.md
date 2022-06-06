@@ -5,8 +5,5 @@
 
 ![snapshot](./img/snapshot.png)
 
-## 安装
-
-在 build 目录下有编译好的 MacQRCode.app。将这个拖到你的/Applications目录下就可以了
 
 
